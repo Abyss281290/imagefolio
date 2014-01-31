@@ -15,20 +15,22 @@ class PlansHelper
 				// add invoices
 				if($agency->plan->price > 0) {
 
-					// minimum payment for 1 month and maximum for 12 months
+                    $invoicesTotal = AgencyInvoices::getCount(AgencyModule::getCurrentAgencyId(), false);
+                    $now = date('Y-m-d');
+                    $now = new DateTime($now);
+                    $registration = new DateTime($agency->date_registered);
+                    $months = $registration->diff($now)->m;
 
+                    $missingInvoicesCount = $months - $invoicesTotal + 1;
 
-                        $date1 = new DateTime($agency->payment_date);
-                        $date2 = new DateTime($today);
-                        $months = min(max($date1->diff($date2)->m, 1), 12);
-                        for($i=0; $i<$months; $i++){
-                            self::addInvoice($agency->plan->id);
-                        }
-                        $agency->payment_date = date('Y-m-d', strtotime(date('Y-m').'-'.date('d',strtotime($agency->payment_date)).' +'.$months.' months'));
+                    for($i=0; $i < $missingInvoicesCount; $i++){
+                        self::addInvoice($agency->plan->id);
+                    }
+                    $checkedMonths = $months + 1;
+                    $checkDate = $registration->add(new DateInterval("P{$checkedMonths}M"));
+                    $agency->payment_date = $checkDate->format('Y-m-d');
 
-                        $agency->update(array('payment_date'));
-
-
+                    $agency->update(array('payment_date'));
 
 				}
 			}

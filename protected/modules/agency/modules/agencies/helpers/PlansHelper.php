@@ -27,11 +27,14 @@ class PlansHelper
                         self::addInvoice($agency->plan->id);
                     }
                     $checkedMonths = $months + 1;
-                    $checkDate = $registration->add(new DateInterval("P{$checkedMonths}M"));
+
+                    $registered_at = new DateTime($agency->date_registered);
+
+                    $checkDate = new DateTime($agency->date_registered);
+                    $checkDate = $checkDate->add(new DateInterval("P{$checkedMonths}M"));
                     $agency->payment_date = $checkDate->format('Y-m-d');
 
                     $agency->update(array('payment_date'));
-
 				}
 			}
 		}

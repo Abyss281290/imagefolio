@@ -1,0 +1,1 @@
+<?php echo CHtml::dropDownList('companies','',CompaniesHelper::getListDataForMailing($char),array('multiple'=>true,'size'=>5,'class'=>'selector')); ?>

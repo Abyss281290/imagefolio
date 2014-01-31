@@ -1,0 +1,36 @@
+#agency-menus {
+}
+#agency-menus .list {
+	padding: 10px;
+}
+#agency-menus .list.destination {
+	color: #ccc;
+}
+#agency-menus .list.destination select {
+	color: #888;
+}
+#agency-menus .list select {
+	margin: 0;
+	padding: 5px;
+	min-width: 120px;
+}
+#agency-menus .list.active {
+	background: #999;
+}
+#agency-menus .list.active select {
+	color: #000;
+}
+
+#agency-menus input {
+	margin: 2px;
+}
+
+#agency-menus td {
+	padding: 5px;
+	text-align: center;
+}
+#agency-menus th {
+	padding: 0 15px;
+	background: none;
+	text-align: center;
+}

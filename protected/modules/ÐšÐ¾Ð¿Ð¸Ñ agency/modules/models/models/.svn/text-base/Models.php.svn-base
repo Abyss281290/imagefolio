@@ -1,0 +1,144 @@
+<?php
+/**
+ * This is the model class for table "content".
+ *
+ * The followings are the available columns in table 'news':
+ * @property integer $id
+ * @property integer $created_by
+ * @property string $created_time
+ * @property integer $active
+ */
+class Models extends CActiveRecord
+{
+		public $created_by_obj;
+		public $updated_by_obj;
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @return Content the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'models';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		return array(
+			array('firstname, lastname, growth, weight, hair_color, eye_color, active', 'required'),
+			array('created_by, active', 'numerical', 'integerOnly'=>true),
+			array('', 'safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('id, created_by, created_time, active', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		return array(
+		);
+	}
+	
+	public function behaviors()
+	{
+	    return array('datetimeI18NBehavior' => array('class' => 'ext.DateTimeI18NBehavior'));
+	}
+	
+	public function langForeignKey() {
+		return strtolower($this->tableName()).'_id';
+	}
+	
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'category_id' => 'Category',
+			'region_id' => 'Region',
+			'created_by' => 'Created By',
+			'created_time' => 'Created Time',
+			'active' => 'Active',
+			'content' => 'Content',
+		);
+	}
+	
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+		
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('created_by',$this->created_by);
+		$criteria->compare('created_time',$this->created_time,true);
+		$criteria->compare('active',$this->active);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+	
+	public function removeImage($imageSrc = null)
+	{
+		$m = Yii::app()->getModule('content');
+		$imageSrc = $imageSrc === null? $this->image->src['source'] : $imageSrc;
+		$filename_path = Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.$m->imagesPath;
+		if(is_file( $path = $filename_path . DIRECTORY_SEPARATOR . $imageSrc ))
+			return @unlink($path);
+		return false;
+	}
+	
+	public function beforeSave()
+	{
+		// process image
+		unset($this->image);
+		
+		$attribute = 'image';
+		
+		if($this->scenario == 'insert') {
+			$this->created_by = Yii::app()->user->id;
+		} else { // update
+			$this->updated_by = Yii::app()->user->id;
+			$this->updated_time = new CDbExpression('NOW()');
+			unset($this->created_time);
+			unset($this->created_by);
+		}
+		
+		return true;
+	}
+	
+	public function afterFind()
+	{
+		$this->created_by_obj = User::model()->findByPk($this->created_by);
+		$this->updated_by_obj = User::model()->findByPk($this->updated_by);
+		
+		parent::afterFind();
+	}
+	
+	public function afterDelete()
+	{
+		$this->removeImage();
+		parent::afterDelete();
+	}
+}

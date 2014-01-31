@@ -1,0 +1,44 @@
+.admin-image-gallery {
+}
+.admin-image-gallery .images ul {
+	list-style: none;
+	float: left;
+}
+.admin-image-gallery .images li {
+	float: left;
+	padding: 0 !important;
+}
+.admin-image-gallery .images li img {
+	background: #fff;
+	float: left;
+}
+.admin-image-gallery .images li.ui-sortable-placeholder {
+	background: #eee;
+	visibility: visible !important;
+}
+
+/* Gallery
+-------------------------------------------------------------------*/
+.gallery li {display: inline-block; float: left; margin: 0 5px 5px 0; position: relative}
+.gallery li:hover .img_options li a {display: block; height: 25px; width: 25px}
+.gallery li img {background: #fff;border: 1px solid #dcdcdc;display: block; margin: 0 auto;padding: 4px }
+
+.gallery li:hover .img_options {display: block}
+
+.img_options {position: absolute;z-index: 99; bottom: 5px; right: -0px; width: 55px; height: 25px; display: none}
+.img_options li {background-image: url(../images/gallery.png); display: inline-block;float: none;margin: 0 !important;text-align: center; text-indent: -999em; width: 25px; height: 25px; margin: 0}
+
+.img_options li{background-position: 0 -150px;left:1px}
+.img_options li:hover {background-position: 0 -120px;}
+.img_options li:active {background-position: 0 -90px;}
+
+.img_options li.delete {background-position: 0 -60px; left: -0px}
+.img_options li.delete:hover {background-position: 0 -30px;}
+.img_options li.delete:active {background-position: 0 0;}
+
+.img_options li.edit { visibility: hidden }
+
+.gallery li:hover img {border: 1px solid #cacaca; box-shadow: 0 0 3px #b0b0b0}
+
+.gallery.medium li {margin-left: 40px;}
+.gallery.medium img {height: 150px; width: 210px}

@@ -1,0 +1,153 @@
+.admin-image-gallery {
+}
+.admin-image-gallery .images ul {
+	list-style: none;
+	float: left;
+}
+.admin-image-gallery .images li {
+	float: left;
+	padding: 0 !important;
+}
+.admin-image-gallery .images li img {
+	background-image: url(../images/ajax-loader-transparent.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	float: left;
+	max-width: none;
+}
+.admin-image-gallery .images li.ui-sortable-placeholder {
+	background: #eee;
+	visibility: visible !important;
+}
+.gallery .item {
+	float: left;
+}
+.gallery .item.loading {
+	background: url(../images/dangerbg.gif) left top;
+}
+.gallery .item.public img,
+.gallery .notations li.public span {
+	background-color: #22AA22;
+}
+.gallery .item.main img,
+.gallery .notations li.main span {
+	background-color: #ff9000;
+}
+
+/* Gallery
+-------------------------------------------------------------------*/
+.gallery li {display: inline-block; float: left; margin: 0 5px 5px 0; position: relative}
+.gallery li:hover .img_options li a {display: block; height: 25px; width: 25px}
+.gallery li img {
+	background: #fff;
+	border: 1px solid #dcdcdc;
+	display: block;
+	margin: 0 auto;
+	padding: 4px;
+}
+
+.gallery li:hover .img_options,
+.img_options.active {display: block}
+
+.img_options {position: absolute;z-index: 99; bottom: 5px; right: 5px; height: 25px; display: none}
+.img_options li {background-image: url(../images/gallery.png); display: inline-block;float: right;margin: 0 !important;text-align: center; text-indent: -999em; width: 25px; height: 25px; margin: 0}
+
+.img_options li{background-position: 0 -150px; left:2px}
+.img_options li:hover {background-position: 0 -120px;}
+.img_options li:active {background-position: 0 -90px;}
+
+.img_options li.delete {background-position: 0 -60px;left:0}
+.img_options li.delete:hover {background-position: 0 -30px;}
+.img_options li.delete:active {background-position: 0 0;}
+
+.img_options li.main {background-position: 0 -240px;}
+.img_options li.main:hover {background-position: 0 -210px;}
+.img_options li.main:active {background-position: 0 0;}
+
+.img_options li.public {background-position: 0 -330px;left:3px}
+.img_options li.public:hover {background-position: 0 -300px;}
+.img_options li.public:active {background-position: 0 0;}
+
+.img_options li.edit {}
+
+.img_options li.loading,
+.img_options li.loading:hover{ background: url(../images/ajax-loader.gif) no-repeat center #383838; width: 23px; height: 23px; border: 1px solid #000 }
+
+.gallery li:hover img {border: 1px solid #cacaca; box-shadow: 0 0 3px #b0b0b0}
+
+.gallery.medium li {margin-left: 40px;}
+.gallery.medium img {height: 150px; width: 210px}
+
+.gallery .item.deleting .image {
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+.gallery .notations {
+	margin-bottom: 10px;
+}
+.gallery .notations li {
+	float: left;
+	margin-right: 5px;
+}
+.gallery .notations li span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+}
+.gallery.images .checkbox {
+	top: 0;
+	right: 0;
+	position: absolute;
+}
+
+/* Upload
+-------------------------------------------------------------------*/
+
+.upload.loading .buttons .submit {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.upload.loading .buttons .loader {
+	width: 16px;
+	height: 16px;
+	background: url(../images/ajax-loader-transparent.gif) no-repeat 0 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Uploadify
+-------------*/
+.uploadifyQueue {
+	height: 110px;
+	width: 395px;
+	padding: 0 0 5px 5px;
+	overflow-y: scroll;
+	border: 1px solid #ccc;
+	margin: 5px 0;
+	background: #fff;
+}
+
+.upload .files {
+	list-style: decimal;
+	padding-left: 20px;
+}
+.upload .files img.indicator {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.upload .files a.crop {
+	margin-left: 5px;
+}
+.upload .files img.thumb {
+	display: block;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+.upload .files .remove {
+	display: inline-block;
+	margin-right: 5px;
+}
+.upload .files .remove img {
+	vertical-align: middle;
+}

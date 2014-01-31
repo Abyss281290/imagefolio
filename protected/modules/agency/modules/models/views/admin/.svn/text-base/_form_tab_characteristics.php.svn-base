@@ -1,0 +1,87 @@
+<p class="note">Fields with <span class="required">*</span> are required.</p>
+<div class="form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'content-form',
+	'enableAjaxValidation'=>false,
+	'enableClientValidation' => true,
+	'clientOptions'=>array(
+		'validateOnSubmit' => true,
+		'validateOnChange' => true,
+		'validateOnType' => false,
+	),
+	'htmlOptions' => array(
+		'enctype' => 'multipart/form-data'
+	),
+)); ?>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'firstname'); ?>
+		<?php echo $form->textField($model, 'firstname', array('class'=>'large')); ?>
+		<?php echo $form->error($model, 'firstname'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'lastname'); ?>
+		<?php echo $form->textField($model, 'lastname', array('class'=>'large')); ?>
+		<?php echo $form->error($model, 'lastname'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'growth'); ?>
+		<?php echo $form->textField($model, 'growth', array()); ?>
+		<?php echo $form->error($model, 'growth'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'weight'); ?>
+		<?php echo $form->textField($model, 'weight', array()); ?>
+		<?php echo $form->error($model, 'weight'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'hair_color'); ?>
+		<?php echo $form->textField($model, 'hair_color', array()); ?>
+		<?php echo $form->error($model, 'hair_color'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'eye_color'); ?>
+		<?php echo $form->textField($model, 'eye_color', array()); ?>
+		<?php echo $form->error($model, 'eye_color'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'active'); ?>
+		<?php echo $form->dropDownList($model, 'active', array(1=>T::_('yes'), 0=>T::_('no'))); ?>
+		<?php echo $form->error($model,'active'); ?>
+	</div>
+	
+	<?php /*
+	<?php if($model->created_by_obj): ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'created'); ?>
+		<?php echo $model->created_by_obj->username; ?>
+		<br /><?php echo $model->created_time; ?>
+	</div>
+	<?php endif; ?>
+	
+	<?php if($model->updated_by_obj): ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'updated'); ?>
+		<?php echo $model->updated_by_obj->username; ?>
+		<br /><?php echo $model->updated_time; ?>
+	</div>
+	<?php endif; ?>
+	*/ ?>
+	
+	<div class="row buttons">
+		<?php echo $form->label($model,''); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class' => 'button blue')); ?>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<?php echo CHtml::link(Yii::t('main', 'Back to Grid'), $this->createUrl('index'), array('class'=>'button small')); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->

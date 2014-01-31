@@ -1,0 +1,7 @@
+ul#model-images {
+}
+
+#model-images li {
+	float: left;
+	margin: 0 5px 5px 0;
+}

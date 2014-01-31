@@ -1,0 +1,20 @@
+#maincontent {
+  width: 540px;
+  margin-right: 20px;
+}
+#sidebar {
+  width: 265px;
+  padding-left: 10px;
+}
+ul#latestporto li {
+  float: left;
+  margin: 0 3px 5px 0;
+  color:#666666;
+}
+ul#serviceslist-page li { 
+  margin-right: 15px;
+}
+.mainpost {
+  width: 400px;  
+  padding-right: 20px;   
+}

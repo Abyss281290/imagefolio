@@ -1,0 +1,82 @@
+Array
+(
+    [MerchantNumber] => 59124
+    [CustomerName] => Marcus Flemmings
+    [xxxName] => Marcus Flemmings
+    [CustomerCompany] => TMP Agency
+    [xxxCompany] => TMP Agency
+    [CustomerAddress] => 55 Holmes RoadTMP AgencyLondonNW5 3AN
+    [xxxAddress] => 55 Holmes RoadTMP AgencyLondonNW5 3AN
+    [CustomerCity] => London
+    [xxxCity] => London
+    [CustomerProvince] => London
+    [xxxProvince] => London
+    [CustomerCountry] => GB
+    [xxxCountry] => GB
+    [CustomerPostalCode] => HA3 0UH
+    [xxxPostal] => HA3 0UH
+    [CustomerEmail] => info@tmpagency.com
+    [xxxEmail] => info@tmpagency.com
+    [CustomerPhone] => 0208 204 2716
+    [xxxPhone] => 0208 204 2716
+    [CardHolder] => Marcus Flemmings
+    [xxxCard_Name] => Marcus Flemmings
+    [TimeStamp] => 01/08/2014 06:50:20
+    [Live] => 1
+    [Currency] => 1
+    [receiptnumber] => 1413528350.53A3
+    [SalesOrderNumber] => 520
+    [ReturnCGI] => http://imagefolio.net/agency/agencies/invoices/index/success/1
+    [Language] => EN
+    [UserAgent] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36
+    [GUID] => e627370b-39c5-ac4c-e5d2-2da68b0c342b
+    [ECI] => 5
+    [ApprovalCode] => 531811
+    [PageNumber] => 90000
+    [Page] => 90000
+    [Verbage] => AP/AP/Approved
+    [NiceVerbage] => AP/AP/Approved
+    [xxxAmount] => 100.00
+    [Amount] => 100.00
+    [xxxCCType] => Visa
+    [CardType] => VI
+    [xxxCardType] => VI
+    [DoubleColonProducts] => 100.00::1::001::Invoice::
+    [Products] => 100::1::001::Invoice
+    [UnixTimeStamp] => 1389181820
+    [xxxProcessorTime] => 140108075121000
+    [Date] => 2014/01/08 06:50:20
+    [RefererURL] => http://imagefolio.net/agency/agencies/invoices/index/paid/0
+    [ip_address] => 109.144.142.219
+    [xxxTemp] => 1
+    [xxxTransType] => 00
+    [xxxCVV2ResponseCode] => M
+    [PASSWORD_RESULT] => 0 Password matched
+    [xxxCard_Number] => ************8209
+    [xxxCustomerIP] => 109.144.142.219
+    [xxxPS2000] => N084008426817748MC  F
+    [xxxALP] => F
+    [yt0] => Pay
+    [xxxShippingEmail] => 
+    [xxxShippingName] => 
+    [xxxShippingPhone] => 
+    [xxxShippingCompany] => 
+    [xxxShippingCountry] => 
+    [xxxShippingProvince] => 
+    [xxxShippingAddress] => 
+    [ISOCurrency] => 840
+    [xxxShippingPostal] => 
+    [xxxDCCEligible] => N
+    [xxxCancelURL] => http://imagefolio.net/agency/agencies/invoices/index/cancel/1
+    [agency_id] => 66
+    [xxxShippingCity] => 
+    [CardHolderInfo] => 1
+    [AVSResponseCode] => Z
+    [CVV2Result] => M
+    [EntryTimeStamp] => 01/08/2014 06:50:20 AM
+)
+
+---------------
+Verbage == Approvedtrue
+---------------
+Unpaid invoices count for agency 66: 1

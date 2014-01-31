@@ -1,0 +1,815 @@
+2012/04/18 12:32:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`package_id` AS `t0_c1`, `t`.`agency_id` AS `t0_c2`, `t`.`sender_role` AS `t0_c3`, `t`.`sender_user_id` AS `t0_c4`, `t`.`recipient_name` AS `t0_c5`, `t`.`recipient_email` AS `t0_c6`, `package`.`id` AS `t1_c0`, `package`.`agency_id` AS `t1_c1`, `package`.`booker_id` AS `t1_c2`, `package`.`hash` AS `t1_c3`, `package`.`title` AS `t1_c4`, `package`.`updated_time` AS `t1_c5`, `package`.`views` AS `t1_c6`, `package`.`last_viewed_time` AS `t1_c7` FROM `agency_models_packages_reports` `t`  LEFT OUTER JOIN `agency_models_packages` `package` ON (`t`.`package_id`=`package`.`id`)  WHERE (t.agency_id=:ycp0) ORDER BY id LIMIT 10. Bound with :ycp0='1'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (50)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 12:32:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`package_id` AS `t0_c1`, `t`.`agency_id` AS `t0_c2`, `t`.`sender_role` AS `t0_c3`, `t`.`sender_user_id` AS `t0_c4`, `t`.`recipient_name` AS `t0_c5`, `t`.`recipient_email` AS `t0_c6`, `package`.`id` AS `t1_c0`, `package`.`agency_id` AS `t1_c1`, `package`.`booker_id` AS `t1_c2`, `package`.`hash` AS `t1_c3`, `package`.`title` AS `t1_c4`, `package`.`updated_time` AS `t1_c5`, `package`.`views` AS `t1_c6`, `package`.`last_viewed_time` AS `t1_c7` FROM `agency_models_packages_reports` `t`  LEFT OUTER JOIN `agency_models_packages` `package` ON (`t`.`package_id`=`package`.`id`)  WHERE (t.agency_id=:ycp0) ORDER BY id LIMIT 10. Bound with :ycp0='1'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(374): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\web_projects\oberig\yii\framework\db\ar\CActiveFinder.php(815): CDbCommand->queryAll()
+#2 D:\web_projects\oberig\yii\framework\db\ar\CActiveFinder.php(447): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\web_projects\oberig\yii\framework\db\ar\CActiveFinder.php(72): CJoinElement->find(Object(CDbCriteria))
+#4 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(1295): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(1410): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\web_projects\oberig\yii\framework\web\CActiveDataProvider.php(147): CActiveRecord->findAll(Object(CDbCriteria))
+#7 D:\web_projects\oberig\yii\framework\web\CDataProvider.php(128): CActiveDataProvider->fetchData()
+#8 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(105): CDataProvider->getData()
+#9 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(264): CBaseListView->init()
+#10 D:\web_projects\oberig\yii\framework\web\CBaseController.php(140): CGridView->init()
+#11 D:\web_projects\oberig\yii\framework\web\CBaseController.php(165): CBaseController->createWidget('zii.widgets.gri...', Array)
+#12 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(50): CBaseController->widget('zii.widgets.gri...', Array)
+#13 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#14 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#16 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#17 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#18 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#19 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#20 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#23 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#26 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#28 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#29 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#30 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#31 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 12:32:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 12:33:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 12:33:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:35:43 [error] [exception.CException] exception 'CException' with message 'Either "name" or "value" must be specified for CDataColumn.' in D:\web_projects\oberig\yii\framework\zii\widgets\grid\CDataColumn.php:80
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(321): CDataColumn->init()
+#1 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(279): CGridView->initColumns()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(140): CGridView->init()
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(165): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(50): CBaseController->widget('zii.widgets.gri...', Array)
+#5 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#6 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#7 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#9 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#10 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#12 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#15 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#16 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#18 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#20 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#21 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#22 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#23 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:35:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:35:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:35:59 [error] [exception.CException] exception 'CException' with message 'Property "ModelsPackagesReports.sender_name" is not defined.' in D:\web_projects\oberig\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(129): CComponent->__get('sender_name')
+#1 D:\web_projects\oberig\yii\framework\web\helpers\CHtml.php(2063): CActiveRecord->__get('sender_name')
+#2 D:\web_projects\oberig\yii\framework\web\helpers\CHtml.php(1397): CHtml::resolveValue(Object(ModelsPackagesReports), 'sender_name')
+#3 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CDataColumn.php(97): CHtml::activeDropDownList(Object(ModelsPackagesReports), 'sender_name', Array, Array)
+#4 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridColumn.php(103): CDataColumn->renderFilterCellContent()
+#5 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(445): CGridColumn->renderFilterCell()
+#6 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(423): CGridView->renderFilter()
+#7 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(393): CGridView->renderTableHeader()
+#8 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#11 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#12 D:\web_projects\oberig\yii\framework\web\CBaseController.php(166): CBaseListView->run()
+#13 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(51): CBaseController->widget('zii.widgets.gri...', Array)
+#14 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#15 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#16 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#17 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#18 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#19 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#20 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#21 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#22 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#23 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#24 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#27 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#29 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#30 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#31 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#32 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:36:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:36:14 [error] [exception.CException] exception 'CException' with message 'Property "Agencies.fullname" is not defined.' in D:\web_projects\oberig\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(129): CComponent->__get('fullname')
+#1 D:\web_projects\oberig\yii\framework\web\helpers\CHtml.php(1711): CActiveRecord->__get('fullname')
+#2 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CDataColumn.php(135): CHtml::value(Object(ModelsPackagesReports), 'sender.fullname')
+#3 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridColumn.php(135): CDataColumn->renderDataCellContent(1, Object(ModelsPackagesReports))
+#4 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(512): CGridColumn->renderDataCell(1)
+#5 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(485): CGridView->renderTableRow(1)
+#6 D:\web_projects\oberig\yii\framework\zii\widgets\grid\CGridView.php(395): CGridView->renderTableBody()
+#7 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#8 [internal function]: CBaseListView->renderSection(Array)
+#9 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#10 D:\web_projects\oberig\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#11 D:\web_projects\oberig\yii\framework\web\CBaseController.php(166): CBaseListView->run()
+#12 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(51): CBaseController->widget('zii.widgets.gri...', Array)
+#13 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#14 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#16 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#17 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#18 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#19 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#20 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#23 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#26 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#28 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#29 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#30 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#31 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:37:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:37:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:37:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:37:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:37:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:38:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:43:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:43:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:43:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:54:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DISTINCT' in 'field list'. The SQL statement executed was: SELECT `DISTINCT` AS `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with pid=NULL, role='booker'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (33)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 13:54:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DISTINCT' in 'field list'. The SQL statement executed was: SELECT `DISTINCT` AS `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with pid=NULL, role='booker'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(33): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:54:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DISTINCT.sender_user_id' in 'field list'. The SQL statement executed was: SELECT `DISTINCT`.`sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with pid=NULL, role='booker'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (33)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 13:54:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'DISTINCT.sender_user_id' in 'field list'. The SQL statement executed was: SELECT `DISTINCT`.`sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with pid=NULL, role='booker'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(33): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:55:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:55:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:55:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:55:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid. Bound with pid=NULL, role='booker'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (41)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 13:55:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid. Bound with pid=NULL, role='booker'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(41): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:55:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:56:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with role='booker'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (41)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 13:56:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with role='booker'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(41): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:56:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:56:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with :role='booker'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (41)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 13:56:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE package_id=:pid AND sender_role=:role. Bound with :role='booker'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(41): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 13:56:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 13:56:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:05:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:05:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:05:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:06:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:06:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:06:19 [warning] [application] Failed to set unsafe attribute "sender_name" of "ModelsPackagesReports".
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (100)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:09:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:09:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:12:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:13:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id).
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (38)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:13:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id)' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(38): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:13:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id).
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (38)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:13:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: no parameters were bound. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id)' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(38): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:13:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (39)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:13:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(39): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:14:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (39)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:14:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(39): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:14:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'booker' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (sender_role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'.
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php (39)
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (104)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:14:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'booker' in 'where clause'. The SQL statement executed was: SELECT DISTINCT `sender_user_id`
+FROM `agency_models_packages_reports`
+WHERE (sender_role=booker) AND (agency_id=:agency_id). Bound with :agency_id='1'' in D:\web_projects\oberig\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchAll', 7, Array)
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(39): CDbCommand->queryColumn()
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:14:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:14:57 [warning] [application] Failed to set unsafe attribute "sender_name" of "ModelsPackagesReports".
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (100)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:27:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:28:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:28:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:31:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:31:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:31:50 [warning] [application] Failed to set unsafe attribute "sender_filter" of "ModelsPackagesReports".
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (100)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:31:53 [warning] [application] Failed to set unsafe attribute "sender_filter" of "ModelsPackagesReports".
+in D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php (100)
+in D:\web_projects\oberig\yii\www\tnt\index.php (12)
+2012/04/18 14:32:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:32:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:32:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:32:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:33:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:33:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:39:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('js/jquery.js')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/js/jquery.js
+2012/04/18 14:39:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in D:\web_projects\oberig\yii\framework\web\CController.php:477
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CController.php(262): CController->missingAction('assets')
+#1 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('assets')
+#2 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('site/assets/scr...')
+#3 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#4 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#5 {main} REQUEST_URI=/tnt/site/assets/scripts/jqueryui/jqueryui.css
+2012/04/18 14:39:56 [error] [exception.CException] exception 'CException' with message 'Property "Agencies.fullname" is not defined.' in D:\web_projects\oberig\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(129): CComponent->__get('fullname')
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(47): CActiveRecord->__get('fullname')
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:40:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:40:08 [error] [exception.CException] exception 'CException' with message 'Property "Agencies.fullname" is not defined.' in D:\web_projects\oberig\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\db\ar\CActiveRecord.php(129): CComponent->__get('fullname')
+#1 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\views\packagesReports\index.php(47): CActiveRecord->__get('fullname')
+#2 D:\web_projects\oberig\yii\framework\web\CBaseController.php(119): require('D:\web_projects...')
+#3 D:\web_projects\oberig\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web_projects...', Array, true)
+#4 D:\web_projects\oberig\yii\framework\web\CController.php(866): CBaseController->renderFile('D:\web_projects...', Array, true)
+#5 D:\web_projects\oberig\yii\framework\web\CController.php(779): CController->renderPartial('index', Array, true)
+#6 D:\web_projects\oberig\yii\www\tnt\protected\modules\agency\modules\models\controllers\PackagesReportsController.php(104): CController->render('index', Array)
+#7 D:\web_projects\oberig\yii\framework\web\actions\CInlineAction.php(50): PackagesReportsController->actionIndex()
+#8 D:\web_projects\oberig\yii\framework\web\CController.php(300): CInlineAction->runWithParams(Array)
+#9 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\web_projects\oberig\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\web_projects\oberig\yii\framework\web\CController.php(1144): CFilter->filter(Object(CFilterChain))
+#12 D:\web_projects\oberig\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\web_projects\oberig\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\web_projects\oberig\yii\framework\web\CController.php(283): CFilterChain->run()
+#15 D:\web_projects\oberig\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(277): CController->run('index')
+#17 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('agency/models/p...')
+#18 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#19 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#20 {main} REQUEST_URI=/tnt/agency/models/packagesReports/index
+2012/04/18 14:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:40:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:41:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:41:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:41:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:41:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js
+2012/04/18 14:41:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ls/jquery.placeholder.1.2.min.shrink.js".' in D:\web_projects\oberig\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 D:\web_projects\oberig\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('ls/jquery.place...')
+#1 D:\web_projects\oberig\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 D:\web_projects\oberig\yii\www\tnt\index.php(12): CApplication->run()
+#3 {main} REQUEST_URI=/tnt/ls/jquery.placeholder.1.2.min.shrink.js

@@ -1,0 +1,16 @@
+<?php
+$this->breadcrumbs=array(
+	'Agency'=>array('/agency/admin'),
+	'Models'=>array('/agency/models/admin'),
+	'Create',
+);
+
+$this->menu=array(
+	array('label'=>'List Models', 'url'=>array('index')),
+	array('label'=>'Manage Models', 'url'=>array('admin')),
+);
+
+$this->title = 'Create Models';
+?>
+
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

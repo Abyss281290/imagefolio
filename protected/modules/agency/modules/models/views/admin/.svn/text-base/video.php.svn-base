@@ -1,0 +1,19 @@
+<?php
+$this->breadcrumbs=array(
+	'Agency'=>array('/agency/admin'),
+	'Models'=>array('/agency/models/admin'),
+	$model->firstname.' '.$model->lastname,
+	'Update',
+);
+
+$this->menu=array(
+	array('label'=>'List Models', 'url'=>array('index')),
+	array('label'=>'Create Models', 'url'=>array('create')),
+	array('label'=>'View Models', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Manage Models', 'url'=>array('admin')),
+);
+
+$this->title = 'Update Models';
+?>
+
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

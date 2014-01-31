@@ -1,0 +1,25 @@
+.grid-view .filter-letters {
+	padding-bottom: 5px;
+}
+.grid-view .filter-letters .title {
+	margin-bottom: 5px;
+}
+.grid-view .filter-letters .item {
+	display: inline-block;
+	font-size: 15px;
+	padding: 2px 8px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.grid-view .filter-letters .item:hover,
+.grid-view .filter-letters .item.active {
+	background: #ddd;
+	text-decoration: none;
+}
+.grid-view .filter-letters .item.active {
+	background: #5BA0C9;
+	color: #fff;
+}
+.grid-view .filter-letters .item.all {
+	margin-right: 10px;
+}

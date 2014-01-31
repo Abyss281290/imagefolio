@@ -1,0 +1,11 @@
+.models-list .items li {
+	width: auto !important;
+	overflow: hidden;
+	text-align: center;
+}
+/*
+.models-list .items li img {
+	height: 170px;
+	width: 127px;
+}
+*/
